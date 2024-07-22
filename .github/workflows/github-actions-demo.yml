@@ -31,5 +31,6 @@ jobs:
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '22'    
+          check-latest: true
       - run: java --enable-preview --source 22 HelloWorld.java
 
