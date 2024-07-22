@@ -23,3 +23,13 @@ jobs:
         run: echo "test_secret=$test_secret" && echo "$test_secret" >> /tmp/secret.txt
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
+  Run-Java:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '22'    
+      - run: java --enable-preview --source 22 Test.java
+
