@@ -15,7 +15,11 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Show environment
         run: set
+      - name: Use a secret
+        env:
+          test_secret: "${{ secrets.TEST }}"
+        run: echo "test_secret=$test_secret"
+      - run: echo "🍏 This job's status is ${{ job.status }}."
 
